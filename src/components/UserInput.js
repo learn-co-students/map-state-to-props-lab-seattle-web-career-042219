@@ -17,11 +17,16 @@ class UserInput extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     this.props.dispatch({type: 'ADD_USER', user: this.state})
+    this.setState({
+      username: '',
+      hometown: ''
+    })
+    document.getElementById('form').reset();
   }
 
   render() {
     return(
-      <form onSubmit={this.handleOnSubmit}>
+      <form id='form' onSubmit={this.handleOnSubmit}>
         <p>
           <input
             type="text"
